@@ -3,7 +3,7 @@
 //java code to find smallest and largest integer value from an array//
 
 
-public class Question2 {
+public class smallest&largest {
     
     public static void main(String[] args) {
         
