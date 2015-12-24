@@ -1,0 +1,49 @@
+import java.util.Random;
+
+/**
+ *
+ * @author Ankit
+ */
+public class RandomizeinPlace {
+    
+    
+  public static void shuffleArray(int[] A) { 
+      
+    int n = A.length;
+    
+    Random random = new Random();
+    
+    random.nextInt(); 
+    
+    for (int i = 0; i < n; i++) {
+        
+      int change = i + random.nextInt(n - i);
+      
+      swap(A, i, change);
+      
+    } 
+  } 
+  private static void swap(int[] A, int i, int change) {
+      
+    int helper = A[i];
+    
+    A[i] = A[change];
+    
+    A[change] = helper;
+    
+  } 
+    public static void main(String[] args) {
+        
+    int[] A = new int[] { 103,104,105,106,108,110,111,112,113,114,115};
+    
+    shuffleArray(A);
+    
+    for (int i : A) {
+        
+      System.out.println(i); 
+      
+    } 
+    
+}
+    
+}
