@@ -1,0 +1,60 @@
+/**
+ *
+ * @author Ankit
+ */
+public class countingsort {
+    
+        int[] c;
+
+public countingsort(final int[] a, final int[]b ,final int k){
+c=new int[k+1];
+for(int i=0;i<=k;i++){
+c[i]=0;
+
+} 
+for(int j=0;j<a.length;j++){
+c[a[j]]=c[a[j]]+1;
+
+
+}
+System.out.print("\nThe counting array C after the counting (lines 4-5 in pseudocode) has completed\n" );
+for(int p=0;p<c.length;p++){
+System.out.print(+c[p]);}
+
+
+for(int i=1;i<=k;i++){
+c[i]=c[i]+c[i-1];
+
+}
+System.out.print("\nThe counting array C after the summing (lines 7-8 in pseudocode) has completed\n");
+for(int p=0;p<c.length;p++){
+System.out.print(+c[p]+" ");
+}
+
+for(int j=a.length-1;j>=0;j--){
+b[c[a[j]]-1]=a[j];
+c[a[j]]=c[a[j]]-1;
+}
+}
+
+public static void main(String[] args) {
+int l[]={6,0,2,0,1,3,4,6,1,3,2};
+int k[]=new int[l.length];
+System.out.print("The original input array A\n");
+for(int i=0;i<l.length;i++){
+System.out.print(l[i]+" ");
+}
+countingsort cs= new countingsort(k, k, 0);
+cs.countingsort1(l,k,6);
+System.out.print("\nThe final sorted array B after performing the Counting Sort algorithm\n");
+for(int i=0;i<k.length;i++){
+System.out.print(k[i]+" ");
+}
+}
+
+private void countingsort1(final int[] l, final int[] k, final int i) {
+	
+}   
+
+    
+}
