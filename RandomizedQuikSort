@@ -1,0 +1,63 @@
+/**
+ *
+ * @author Ankit
+ */
+public class Randomizedquicksort {
+    
+    private static final int []b={4,1,3,2,16,9,10,14,8,7};
+
+	    public static void main(String[] args) {
+	        printArray();
+	        sort();
+	       System.out.println("");
+	        printArray();
+	    }
+	     
+	    public static void sort(){
+	        int left = 0;
+	        int right = b.length-1;
+	        quickSort(left, right);
+	    }
+	    
+	    private static void quickSort(int left,int right){
+	                 
+	        if(left >= right)
+	            return;
+	        
+	        int pivot = b[right];
+	        int partition = partition(left, right, pivot);
+	        
+	        quickSort(0, partition-1);
+	        quickSort(partition+1, right);
+	    }
+	    
+    @SuppressWarnings("empty-statement")
+	    private static int partition(int left,int right,int pivot){
+	        int leftCursor = left-1;
+	        int rightCursor = right;
+	        while(leftCursor < rightCursor){
+	                while(b[++leftCursor] < pivot);
+	                while(rightCursor > 0 && b[--rightCursor] > pivot);
+	            if(leftCursor >= rightCursor){
+	                break;
+	            }else{
+	                swap(leftCursor, rightCursor);
+	            }
+	        }
+	        swap(leftCursor, right);
+	        return leftCursor;
+	    }
+	    
+	    public static void swap(int left,int right){
+	        int temp = b[left];
+	        b[left] = b[right];
+	        b[right] = temp;
+	    }
+	    public static void printArray(){
+	        for(int i : b){
+	            System.out.print(i+" ");
+	        }
+
+    
+}
+}
